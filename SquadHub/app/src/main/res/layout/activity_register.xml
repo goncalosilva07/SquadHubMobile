@@ -16,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="162dp"
         android:background="#00FFFFFF"
-        android:onClick="register"
+        android:onClick="goToLoginPage"
         android:text="@string/goToLogin_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"

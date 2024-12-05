@@ -69,8 +69,7 @@ class HomeFragment : Fragment() {
                         response.getJSONObject("game").getString("competition"),
                         response.getJSONObject("game").getString("local"))
 
-
-
+                    requireView().findViewById<TextView>(R.id.clubName).text = Config.club?.name ?: ""
                     requireView().findViewById<TextView>(R.id.competition).text = game.competition
                     requireView().findViewById<TextView>(R.id.opponent).text = game.opponent
                     requireView().findViewById<TextView>(R.id.local).text = game.local
