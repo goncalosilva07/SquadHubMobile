@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/homeicon" />
+    <item
+        android:id="@+id/nav_5"
+        android:icon="@drawable/homeicon" />
+    <item
+        android:id="@+id/nav_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ballicon" />
+    <item
+        android:id="@+id/nav_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/notificationicon" />
+    <item
+        android:id="@+id/nav_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/personicon" />
+</menu>

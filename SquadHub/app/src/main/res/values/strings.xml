@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SquadHub</string>
+    <string name="login_btn">Login</string>
+    <string name="register_btn">Don’t have an account?</string>
+    <string name="txtUserType">User Type</string>
+
+    <string name="admin_btn">Admin</string>
+    <string name="coach_btn">Coach</string>
+    <string name="player_btn">Player</string>
+    <string name="staff_btn">Staff</string>
+
+    <string name="username_input">Username</string>
+    <string name="password_input">Password</string>
+    <string name="repeatPassword_input">Repeat Password</string>
+    <string name="name_input">Name</string>
+    <string name="surname_input">Surname</string>
+    <string name="birthday_input">Date of birth</string>
+    <string name="email_input">Email</string>
+    <string name="phone_input">Phone</string>
+    <string name="submitregister_btn">Register</string>
+    <string name="goToLogin_btn">Do you have an account?</string>
+    <string name="saveLogin">Remember Me</string>
+
+    <string name="squadBtn">Squad</string>
+    <string name="gamesBtn">Games</string>
+    <string name="trainingBtn">Training Sessions</string>
+    <string name="staffBtn">Staff</string>
+    <string name="coachBtn">Coach</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
