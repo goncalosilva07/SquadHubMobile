@@ -58,37 +58,45 @@ class HomeFragment : Fragment() {
             { response ->
                 // Sucesso
                 try {
+                    val jsonObject: JSONObject = response
 
-                    //Criar uma classe game!!!
-                    response.getJSONObject("game").getInt("id")
+                    if (jsonObject.optJSONObject("game") != null){
 
-                    var game: Game = Game(response.getJSONObject("game").getInt("id"), response.getJSONObject("game").getInt("idClub"),
-                        response.getJSONObject("game").getString("opponent"),
-                        response.getJSONObject("game").getString("date"),
-                        response.getJSONObject("game").getString("time"),
-                        response.getJSONObject("game").getString("competition"),
-                        response.getJSONObject("game").getString("local"))
+                        var game: Game = Game(response.getJSONObject("game").getInt("id"), response.getJSONObject("game").getInt("idClub"),
+                            response.getJSONObject("game").getString("opponent"),
+                            response.getJSONObject("game").getString("date"),
+                            response.getJSONObject("game").getString("time"),
+                            response.getJSONObject("game").getString("competition"),
+                            response.getJSONObject("game").getString("local"))
 
-                    requireView().findViewById<TextView>(R.id.clubName).text = Config.club?.name ?: ""
-                    requireView().findViewById<TextView>(R.id.competition).text = game.competition
-                    requireView().findViewById<TextView>(R.id.opponent).text = game.opponent
-                    requireView().findViewById<TextView>(R.id.local).text = game.local
-                    requireView().findViewById<TextView>(R.id.date_time).text = game.date + " " + game.time
+                        requireView().findViewById<TextView>(R.id.clubName).text = Config.club?.name ?: ""
+                        requireView().findViewById<TextView>(R.id.competition).text = game.competition
+                        requireView().findViewById<TextView>(R.id.opponent).text = game.opponent
+                        requireView().findViewById<TextView>(R.id.local).text = game.local
+                        requireView().findViewById<TextView>(R.id.date_time).text = game.date + " " + game.time
+                    }else{
+                        requireView().findViewById<TextView>(R.id.clubName).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.competition).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.opponent).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.local).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.date_time).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.vsTextView).visibility = View.GONE
+                        requireView().findViewById<TextView>(R.id.noGames).visibility = View.VISIBLE
+                    }
 
                     requireView().findViewById<TextView>(R.id.clubVictories).text = response.getJSONObject("clubStats").getString("victories")
                     requireView().findViewById<TextView>(R.id.clubDraws).text = response.getJSONObject("clubStats").getString("draws")
                     requireView().findViewById<TextView>(R.id.clubDefeats).text = response.getJSONObject("clubStats").getString("defeats")
 
-                    requireView().findViewById<TextView>(R.id.scorerName).text = response.getJSONObject("scorer").getString("name") + " " + response.getJSONObject("scorer").getString("surname")
-                    requireView().findViewById<TextView>(R.id.scorerGoals).text = response.getJSONObject("scorer").getInt("goals").toString()
-                    requireView().findViewById<TextView>(R.id.assisterName).text = response.getJSONObject("assister").getString("name") + " " + response.getJSONObject("assister").getString("surname")
-                    requireView().findViewById<TextView>(R.id.assisterAssists).text = response.getJSONObject("assister").getInt("assists").toString()
-
-
-
-
-                    println("requisição: ")
-
+                    if(jsonObject.optJSONObject("scorer") != null){
+                        requireView().findViewById<TextView>(R.id.scorerName).text = response.getJSONObject("scorer").getString("name") + " " + response.getJSONObject("scorer").getString("surname")
+                        requireView().findViewById<TextView>(R.id.scorerGoals).text = response.getJSONObject("scorer").getInt("goals").toString()
+                        requireView().findViewById<TextView>(R.id.assisterName).text = response.getJSONObject("assister").getString("name") + " " + response.getJSONObject("assister").getString("surname")
+                        requireView().findViewById<TextView>(R.id.assisterAssists).text = response.getJSONObject("assister").getInt("assists").toString()
+                    }else{
+                        requireView().findViewById<TextView>(R.id.scorerName).text = getString(R.string.noPlayerTextView)
+                        requireView().findViewById<TextView>(R.id.assisterName).text = getString(R.string.noPlayerTextView)
+                    }
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

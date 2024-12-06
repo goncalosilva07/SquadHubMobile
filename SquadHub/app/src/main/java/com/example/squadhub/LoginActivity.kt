@@ -98,12 +98,6 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
 
-                    /*
-                    if ("success" == status) {
-                        println("Login bem-sucedido: $message")
-                    } else {
-                        println("Erro: $message")
-                    }*/
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
