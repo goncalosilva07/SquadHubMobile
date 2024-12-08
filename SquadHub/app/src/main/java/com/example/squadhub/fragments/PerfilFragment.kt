@@ -9,9 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.example.squadhub.Config
 import com.example.squadhub.LoginActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
+import com.example.squadhub.model.Club
+import com.example.squadhub.model.Permissions.Companion.parsePermissionsManually
+import org.json.JSONException
+import org.json.JSONObject
 
 class PerfilFragment : Fragment() {
 
@@ -26,9 +35,61 @@ class PerfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getPerfilData()
+
         view.findViewById<Button>(R.id.logout).setOnClickListener {
             logout(view)
         }
+    }
+
+    fun getPerfilData(){
+
+        val url = Config.url +  "route.php"
+        // Criar os dados JSON
+        val jsonBody = JSONObject()
+        try {
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("route", "getUserData")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        // Criar o JsonObjectRequest
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,  // Método HTTP
+            url,  // URL
+            jsonBody,  // Dados JSON a enviar
+            { response ->
+                // Sucesso
+                try {
+                    //val status = response.getString("status")
+
+                    requireView().findViewById<TextView>(R.id.username).text = response.getString("username")
+                    requireView().findViewById<TextView>(R.id.nameEditText).text = response.getString("name")
+                    requireView().findViewById<TextView>(R.id.surnameEditText).text = response.getString("surname")
+                    requireView().findViewById<TextView>(R.id.birthdateEditText).text = response.getString("birthdate")
+                    requireView().findViewById<TextView>(R.id.emailEditText).text = response.getString("email")
+                    requireView().findViewById<TextView>(R.id.phoneEditText).text = response.getString("phone")
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error ->
+                // Erro
+                println("Erro na requisição: " + error.message)
+
+                // Verificando se o erro tem um corpo de resposta
+                val errorMessage = String(error.networkResponse.data)
+                val jsonError = JSONObject(errorMessage)
+
+                // Exibir a mensagem de erro enviada pela API
+                val message = jsonError.optString("message", "Erro desconhecido")
+                Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+            }
+        )
+        // Adicionar à fila de requisições
+        Volley.newRequestQueue(requireContext()).add(jsonObjectRequest)
     }
 
     fun logout(view: View){

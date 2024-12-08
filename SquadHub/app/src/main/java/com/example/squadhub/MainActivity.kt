@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley
 import com.example.squadhub.model.Permissions.Companion.parsePermissionsManually
 import com.example.squadhub.databinding.ActivityMainBinding
 import com.example.squadhub.fragments.HomeFragment
+import com.example.squadhub.fragments.NotificationsFragment
 import com.example.squadhub.fragments.PerfilFragment
 import com.example.squadhub.fragments.TeamFragment
 import com.example.squadhub.fragments.UserWithoutClubFragment
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                     binding.menuTitle.text = "Notifications"
                     supportFragmentManager
                         .beginTransaction()
-                        .add(R.id.placeholder, HomeFragment() )
+                        .add(R.id.placeholder, NotificationsFragment() )
                         .commit() }
                 R.id.nav_4 -> {
                     binding.menuTitle.text = "Perfil"
