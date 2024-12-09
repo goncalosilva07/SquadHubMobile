@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
@@ -40,6 +41,10 @@ class PerfilFragment : Fragment() {
         view.findViewById<Button>(R.id.logout).setOnClickListener {
             logout(view)
         }
+
+        view.findViewById<Button>(R.id.saveBtn).setOnClickListener {
+            updateUserData()
+        }
     }
 
     fun getPerfilData(){
@@ -70,6 +75,61 @@ class PerfilFragment : Fragment() {
                     requireView().findViewById<TextView>(R.id.birthdateEditText).text = response.getString("birthdate")
                     requireView().findViewById<TextView>(R.id.emailEditText).text = response.getString("email")
                     requireView().findViewById<TextView>(R.id.phoneEditText).text = response.getString("phone")
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            { error ->
+                // Erro
+                println("Erro na requisição: " + error.message)
+
+                // Verificando se o erro tem um corpo de resposta
+                val errorMessage = String(error.networkResponse.data)
+                val jsonError = JSONObject(errorMessage)
+
+                // Exibir a mensagem de erro enviada pela API
+                val message = jsonError.optString("message", "Erro desconhecido")
+                Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+            }
+        )
+        // Adicionar à fila de requisições
+        Volley.newRequestQueue(requireContext()).add(jsonObjectRequest)
+    }
+
+    fun updateUserData(){
+
+        val nameEditText = requireView().findViewById<EditText>(R.id.nameEditText).text
+        val surnameEditText = requireView().findViewById<EditText>(R.id.surnameEditText).text
+        val emailEditText = requireView().findViewById<EditText>(R.id.emailEditText).text
+        val phoneEditText = requireView().findViewById<EditText>(R.id.phoneEditText).text
+        val birthdateEditText = requireView().findViewById<EditText>(R.id.birthdateEditText).text
+
+        val url = Config.url +  "route.php"
+        // Criar os dados JSON
+        val jsonBody = JSONObject()
+        try {
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("name", nameEditText)
+            jsonBody.put("surname", surnameEditText)
+            jsonBody.put("email", emailEditText)
+            jsonBody.put("phone", phoneEditText)
+            jsonBody.put("birthdate", birthdateEditText)
+            jsonBody.put("route", "updateUserData")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        // Criar o JsonObjectRequest
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,  // Método HTTP
+            url,  // URL
+            jsonBody,  // Dados JSON a enviar
+            { response ->
+                // Sucesso
+                try {
+
+                    Toast.makeText(requireContext(), "a", Toast.LENGTH_LONG).show()
 
                 } catch (e: JSONException) {
                     e.printStackTrace()

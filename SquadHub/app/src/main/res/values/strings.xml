@@ -31,8 +31,10 @@
     <string name="noPlayerTextView">No Player</string>
 
     <string name="squadTitle">Squad</string>
+    <string name="gamesTitle">Games</string>
+    <string name="trainingTitle">Training Session</string>
 
-    <string name="updateBtn">Update</string>
+    <string name="updateBtn">Save</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

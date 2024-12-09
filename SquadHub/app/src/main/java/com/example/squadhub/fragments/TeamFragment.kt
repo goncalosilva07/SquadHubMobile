@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.squadhub.GamesActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
 import com.example.squadhub.SquadActivity
+import com.example.squadhub.TrainingSessionActivity
+import com.example.squadhub.model.TrainingSession
 
 class TeamFragment : Fragment() {
 
@@ -27,6 +30,16 @@ class TeamFragment : Fragment() {
 
         requireView().findViewById<Button>(R.id.squadBtn).setOnClickListener {
             val intent = Intent(requireContext(), SquadActivity::class.java)
+            startActivity(intent)
+        }
+
+        requireView().findViewById<Button>(R.id.gamesBtn).setOnClickListener {
+            val intent = Intent(requireContext(), GamesActivity::class.java)
+            startActivity(intent)
+        }
+
+        requireView().findViewById<Button>(R.id.trainingBtn).setOnClickListener {
+            val intent = Intent(requireContext(), TrainingSessionActivity::class.java)
             startActivity(intent)
         }
     }

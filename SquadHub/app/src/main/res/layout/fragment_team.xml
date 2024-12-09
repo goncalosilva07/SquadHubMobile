@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/gamesBtn"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/squadBtn" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/trainingBtn"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/gamesBtn" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/staffBtn"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -72,10 +72,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/trainingBtn" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/coachBtn"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -89,6 +89,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintTop_toBottomOf="@+id/staffBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
