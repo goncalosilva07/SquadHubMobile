@@ -12,6 +12,7 @@ import com.example.squadhub.GamesActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
 import com.example.squadhub.SquadActivity
+import com.example.squadhub.StaffActivity
 import com.example.squadhub.TrainingSessionActivity
 import com.example.squadhub.model.TrainingSession
 
@@ -40,6 +41,11 @@ class TeamFragment : Fragment() {
 
         requireView().findViewById<Button>(R.id.trainingBtn).setOnClickListener {
             val intent = Intent(requireContext(), TrainingSessionActivity::class.java)
+            startActivity(intent)
+        }
+
+        requireView().findViewById<Button>(R.id.staffBtn).setOnClickListener {
+            val intent = Intent(requireContext(), StaffActivity::class.java)
             startActivity(intent)
         }
     }

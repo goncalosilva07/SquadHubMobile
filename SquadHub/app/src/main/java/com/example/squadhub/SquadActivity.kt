@@ -45,6 +45,7 @@ class SquadActivity : AppCompatActivity() {
 
     fun goToTeam(view: View){
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("selectedItemId", 2)
         startActivity(intent)
         finish()
     }

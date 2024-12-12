@@ -12,31 +12,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import com.example.squadhub.adapter.GamesAdapter
 import com.example.squadhub.adapter.SquadAdapter
+import com.example.squadhub.adapter.StaffAdapter
 import com.example.squadhub.model.Game
 import com.example.squadhub.model.User
 import org.json.JSONException
 import org.json.JSONObject
 
-class GamesActivity : AppCompatActivity() {
+class StaffActivity : AppCompatActivity() {
 
-    private var games = ArrayList<Game>()
+    private var staff = ArrayList<User>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_games)
+        setContentView(R.layout.activity_staff)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        findViewById<RecyclerView>(R.id.recyclerViewGames).layoutManager =
+        findViewById<RecyclerView>(R.id.recyclerViewStaff).layoutManager =
             LinearLayoutManager(this)
 
-        getGames()
+        getStaff()
     }
 
     fun goToTeam(view: View){
@@ -46,14 +46,14 @@ class GamesActivity : AppCompatActivity() {
         finish()
     }
 
-    fun getGames(){
+    fun getStaff(){
 
         val url = Config.url + "route.php"
         // Criar os dados JSON
         val jsonBody = JSONObject()
         try {
             Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
-            jsonBody.put("route", "getGames")
+            jsonBody.put("route", "getStaff")
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -72,18 +72,21 @@ class GamesActivity : AppCompatActivity() {
                     //val jsonArray = JSONArray(response)
                     for(i in 0 until response.length()) {
                         val item = response.getJSONObject(i)
-                        val g = Game(item.getInt("id"),
+                        val u = User(item.getInt("id"),
                             item.getInt("idClub"),
-                            item.getString("opponent"),
-                            item.getString("date"),
-                            item.getString("time"),
-                            item.getString("competition"),
-                            item.getString("local"))
+                            item.getString("username"),
+                            item.getString("name"),
+                            item.getString("surname"),
+                            item.getString("birthdate"),
+                            item.getString("email"),
+                            item.getInt("phone"),
+                            3)
 
-                        games.add(g)
+                        staff.add(u)
                     }
 
-                    findViewById<RecyclerView>(R.id.recyclerViewGames).adapter = GamesAdapter(games)
+                    findViewById<RecyclerView>(R.id.recyclerViewStaff).adapter =
+                        StaffAdapter(staff)
 
                 } catch (e: JSONException) {
                     e.printStackTrace()

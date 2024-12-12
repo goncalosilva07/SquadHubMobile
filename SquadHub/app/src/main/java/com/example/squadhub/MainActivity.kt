@@ -85,6 +85,13 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
 
+        // Verificar se foi enviado um item de navegação
+        val selectedItemId = intent.getIntExtra("selectedItemId", -1)
+        if (selectedItemId != -1) {
+            if (selectedItemId == 2){
+                navigation.selectedItemId = R.id.nav_2
+            }
+        }
     }
 
     override fun onStart() {

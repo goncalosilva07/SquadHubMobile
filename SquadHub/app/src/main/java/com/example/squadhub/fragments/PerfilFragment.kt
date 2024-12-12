@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
@@ -128,9 +129,7 @@ class PerfilFragment : Fragment() {
             { response ->
                 // Sucesso
                 try {
-
-                    Toast.makeText(requireContext(), "a", Toast.LENGTH_LONG).show()
-
+                    Toast.makeText(requireContext(), response.getString("message"), Toast.LENGTH_LONG).show()
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
