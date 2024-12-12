@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.squadhub.CoachActivity
 import com.example.squadhub.GamesActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
@@ -46,6 +47,11 @@ class TeamFragment : Fragment() {
 
         requireView().findViewById<Button>(R.id.staffBtn).setOnClickListener {
             val intent = Intent(requireContext(), StaffActivity::class.java)
+            startActivity(intent)
+        }
+
+        requireView().findViewById<Button>(R.id.coachBtn).setOnClickListener {
+            val intent = Intent(requireContext(), CoachActivity::class.java)
             startActivity(intent)
         }
     }

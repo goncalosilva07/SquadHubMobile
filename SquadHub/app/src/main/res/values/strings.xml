@@ -34,8 +34,15 @@
     <string name="gamesTitle">Games</string>
     <string name="trainingTitle">Training Session</string>
     <string name="staffTitle">Staff</string>
+    <string name="coachTitle">Coach</string>
 
     <string name="updateBtn">Save</string>
+
+    <string name="coach_name">Name</string>
+    <string name="coach_email">Email</string>
+    <string name="coach_phone">Phone</string>
+    <string name="coach_birthdate">Birthdate</string>
+    <string name="coach_careerStartDate">Career Start Date</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
