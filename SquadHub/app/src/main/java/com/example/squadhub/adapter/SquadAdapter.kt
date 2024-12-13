@@ -15,7 +15,7 @@ class SquadAdapter(val players: ArrayList<User>):
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val cardPlayer: CardView = itemView.findViewById(R.id.cardPlayer)
-        val playerName: TextView = itemView.findViewById(R.id.staffName)
+        val playerName: TextView = itemView.findViewById(R.id.playerName)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

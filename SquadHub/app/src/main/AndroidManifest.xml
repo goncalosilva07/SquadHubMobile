@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SquadHub"
         tools:targetApi="31">
         <activity
+            android:name=".GameCallActivity"
+            android:exported="false" />
+        <activity
             android:name=".CoachActivity"
             android:exported="false" />
         <activity
