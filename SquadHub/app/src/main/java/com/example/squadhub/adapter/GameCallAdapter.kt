@@ -33,7 +33,7 @@ class GameCallAdapter(val gamecall: ArrayList<GameCall>): RecyclerView.Adapter<G
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val gc = gamecall[position]
-        holder.gamecall_playerName.text = gc.surname + " " + gc.surname
+        holder.gamecall_playerName.text = gc.name + " " + gc.surname
 
         val position: Array<String> = gc.position.split(Regex("\\d")).toTypedArray()
         holder.gamecall_playerPosition.text = position[0].uppercase()

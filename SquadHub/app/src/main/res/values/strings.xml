@@ -36,6 +36,7 @@
     <string name="staffTitle">Staff</string>
     <string name="coachTitle">Coach</string>
     <string name="gamecallTitle">Game Call</string>
+    <string name="gameStatisticsTitle">Statistics</string>
 
     <string name="updateBtn">Save</string>
 
@@ -46,6 +47,13 @@
     <string name="coach_careerStartDate">Career Start Date</string>
 
     <string name="gamecall_nogamecall">Game call not yet created</string>
+
+
+    <string name="dialog_removeGameTitle">Are you sure you want to remove the game?</string>
+    <string name="dialog_removeGameMessage">You cannot reverse this action!</string>
+    <string name="dialog_removeGameCancel">Cancel</string>
+
+    <string name="gameStatistics_nostatistics">No statistics yet</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
