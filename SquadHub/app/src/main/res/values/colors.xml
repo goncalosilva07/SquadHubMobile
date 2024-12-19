@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="backGroundColor">#12372A</color>
-    <color name="golden">#5F4E1E</color>
+    <color name="backGroundColor2">#12372A</color>
+    <color name="backGroundColor">#1B1B1B</color>
+    <color name="golden2">#5F4E1E</color>
+    <color name="golden">#1D1D1D</color>
     <color name="gray">#EFEFEF</color>
 </resources>

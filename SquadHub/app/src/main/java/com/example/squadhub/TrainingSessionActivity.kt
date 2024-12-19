@@ -18,6 +18,8 @@ import com.example.squadhub.model.Game
 import com.example.squadhub.model.TrainingSession
 import org.json.JSONException
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class TrainingSessionActivity : AppCompatActivity() {
 
@@ -44,6 +46,16 @@ class TrainingSessionActivity : AppCompatActivity() {
         intent.putExtra("selectedItemId", 2)
         startActivity(intent)
         finish()
+    }
+
+    fun formatTime(inputTime: String): String {
+        // Define o formato de entrada e saída
+        val inputFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+        // Faz o parsing da string de entrada e formata para o formato desejado
+        val date = inputFormat.parse(inputTime)
+        return outputFormat.format(date!!)
     }
 
     fun getTrainingSessions(){
@@ -76,8 +88,8 @@ class TrainingSessionActivity : AppCompatActivity() {
                             item.getInt("idClub"),
                             item.getString("trainingType"),
                             item.getString("date"),
-                            item.getString("startTime"),
-                            item.getString("endTime"),
+                            formatTime(item.getString("startTime")),
+                            formatTime(item.getString("endTime")),
                             )
 
                         trainingSessions.add(t)

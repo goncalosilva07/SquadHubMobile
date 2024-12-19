@@ -10,7 +10,7 @@ class Config(context : Context) {
 
         val url = "https://esan-tesp-ds-paw.web.ua.pt/tesp-ds-g28/projeto/api/"
 
-        var isLogged = false
+        //var isLogged = false
 
         var idUser: Int = -1
         var username: String = ""
@@ -19,5 +19,14 @@ class Config(context : Context) {
         lateinit var permissions: List<Permissions>
         var club: Club? = null
 
+
+        fun clean(){
+            idUser = -1
+            username = ""
+            idClub = null
+            role = -1
+            permissions = emptyList()
+            club = null
+        }
     }
 }

@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Next Game"
+                android:text="@string/nextGame"
                 android:textColor="@color/golden"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Estatísticas"
+                android:text="@string/statistics"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
-                android:text="Victory"
+                android:text="@string/victory"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView15"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Draw"
+                android:text="@string/draw"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:text="Defeat"
+                android:text="@string/defeat"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
@@ -241,7 +241,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Best Players"
+                android:text="@string/bestPlayers"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -295,7 +295,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Scorer"
+                    android:text="@string/scorer"
                     android:textSize="20sp" />
 
                 <TextView
@@ -307,7 +307,7 @@
                     android:layout_marginEnd="60dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Assister"
+                    android:text="@string/assister"
                     android:textSize="20sp" />
             </LinearLayout>
 

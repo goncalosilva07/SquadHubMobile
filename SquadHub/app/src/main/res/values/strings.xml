@@ -1,21 +1,21 @@
 <resources>
-    <string name="app_name">SquadHub</string>
-    <string name="login_btn">Login</string>
+    <string name="app_name" translatable="false">SquadHub</string>
+    <string name="login_btn" translatable="false">Login</string>
     <string name="register_btn">Don’t have an account?</string>
     <string name="txtUserType">User Type</string>
 
-    <string name="admin_btn">Admin</string>
+    <string name="admin_btn" translatable="false">Admin</string>
     <string name="coach_btn">Coach</string>
     <string name="player_btn">Player</string>
-    <string name="staff_btn">Staff</string>
+    <string name="staff_btn" translatable="false">Staff</string>
 
     <string name="username_input">Username</string>
-    <string name="password_input">Password</string>
+    <string name="password_input" translatable="false">Password</string>
     <string name="repeatPassword_input">Repeat Password</string>
     <string name="name_input">Name</string>
     <string name="surname_input">Surname</string>
     <string name="birthday_input">Date of birth</string>
-    <string name="email_input">Email</string>
+    <string name="email_input" translatable="false">Email</string>
     <string name="phone_input">Phone</string>
     <string name="submitregister_btn">Register</string>
     <string name="goToLogin_btn">Do you have an account?</string>
@@ -24,7 +24,7 @@
     <string name="squadBtn">Squad</string>
     <string name="gamesBtn">Games</string>
     <string name="trainingBtn">Training Sessions</string>
-    <string name="staffBtn">Staff</string>
+    <string name="staffBtn" translatable="false">Staff</string>
     <string name="coachBtn">Coach</string>
 
     <string name="noGamesTextView">No Games</string>
@@ -33,7 +33,7 @@
     <string name="squadTitle">Squad</string>
     <string name="gamesTitle">Games</string>
     <string name="trainingTitle">Training Session</string>
-    <string name="staffTitle">Staff</string>
+    <string name="staffTitle" translatable="false">Staff</string>
     <string name="coachTitle">Coach</string>
     <string name="gamecallTitle">Game Call</string>
     <string name="gameStatisticsTitle">Statistics</string>
@@ -41,7 +41,7 @@
     <string name="updateBtn">Save</string>
 
     <string name="coach_name">Name</string>
-    <string name="coach_email">Email</string>
+    <string name="coach_email" translatable="false">Email</string>
     <string name="coach_phone">Phone</string>
     <string name="coach_birthdate">Birthdate</string>
     <string name="coach_careerStartDate">Career Start Date</string>
@@ -55,8 +55,19 @@
 
     <string name="gameStatistics_nostatistics">No statistics yet</string>
 
+    <string name="welcomeback">Welcome Back</string>
+    <string name="nextGame">Next Game</string>
+    <string name="statistics">Statistics</string>
+    <string name="victory">Victory</string>
+    <string name="draw">Draw</string>
+    <string name="defeat">Defeat</string>
+    <string name="bestPlayers">Best Players</string>
+    <string name="scorer">Scorer</string>
+    <string name="assister">Assister</string>
+    <string name="joinClub">Join a Club</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
 </resources>

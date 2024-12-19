@@ -154,6 +154,8 @@ class PerfilFragment : Fragment() {
     fun logout(view: View){
         view.context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putBoolean("login", false).putInt("idUser", -1).apply()
 
+        Config.clean()
+
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
