@@ -16,7 +16,8 @@ class TrainingSessionsAdapter(val trainingSession: ArrayList<TrainingSession>):
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val cardTraining: CardView = itemView.findViewById(R.id.cardTraining)
-        //val playerName: TextView = itemView.findViewById(R.id.playerName)
+        val trainingType: TextView = itemView.findViewById(R.id.itemtraining_training)
+        val trainingDate: TextView = itemView.findViewById(R.id.itemtraining_date)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,8 +28,9 @@ class TrainingSessionsAdapter(val trainingSession: ArrayList<TrainingSession>):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val p = trainingSession[position]
-        //holder.playerName.text = p.name
+        val t = trainingSession[position]
+        holder.trainingType.text = t.trainingType
+        holder.trainingDate.text = t.date
         holder.cardTraining.setOnClickListener {
             val context = holder.cardTraining.context
             Toast.makeText(context, "pos: "+position, Toast.LENGTH_SHORT).show()

@@ -8,4 +8,44 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/itemtraining_delete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:textAlignment="viewEnd"
+            app:srcCompat="@drawable/deleteicon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/itemtraining_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/itemtraining_training"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="TextView" />
+    </LinearLayout>
+
 </androidx.cardview.widget.CardView>

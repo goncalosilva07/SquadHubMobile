@@ -74,6 +74,10 @@ class TrainingSessionActivity : AppCompatActivity() {
                         val item = response.getJSONObject(i)
                         val t = TrainingSession(item.getInt("id"),
                             item.getInt("idClub"),
+                            item.getString("trainingType"),
+                            item.getString("date"),
+                            item.getString("startTime"),
+                            item.getString("endTime"),
                             )
 
                         trainingSessions.add(t)
