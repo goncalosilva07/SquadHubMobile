@@ -43,6 +43,13 @@
     <string name="defeat">Derrota</string>
     <string name="bestPlayers">Melhores Jogadores</string>
     <string name="scorer">Marcador</string>
-    <string name="assister">Assitente</string>
+    <string name="assister">Assistente</string>
     <string name="joinClub">Junte-se a um clube</string>
+    <string name="ball_possession">Posse de bola</string>
+    <string name="goals_scored">Golos Marcados</string>
+    <string name="goals_conceded">Golos Sofridos</string>
+    <string name="shots">Remates</string>
+    <string name="shots_goal">Remates à Baliza</string>
+    <string name="fouls">Faltas</string>
+    <string name="passes">Passes</string>
 </resources>
