@@ -15,6 +15,12 @@
         android:theme="@style/Theme.SquadHub"
         tools:targetApi="31">
         <activity
+            android:name=".AddPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddGameActivity"
+            android:exported="false" />
+        <activity
             android:name=".GameStatisticsActivity"
             android:exported="false" />
         <activity

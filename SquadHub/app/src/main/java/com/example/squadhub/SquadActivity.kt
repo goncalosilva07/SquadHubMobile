@@ -50,6 +50,12 @@ class SquadActivity : AppCompatActivity() {
         finish()
     }
 
+    fun addPlayer(view: View){
+        val intent = Intent(this, AddPlayerActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     fun getSquad(){
 
         val url = Config.url + "route.php"

@@ -114,4 +114,10 @@ class GamesActivity : AppCompatActivity() {
         Volley.newRequestQueue(this).add(jsonObjectRequest)
 
     }
+
+    fun addGame(view: View){
+        val intent = Intent(this, AddGameActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

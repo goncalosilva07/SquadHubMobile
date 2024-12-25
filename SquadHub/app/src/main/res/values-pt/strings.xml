@@ -52,4 +52,14 @@
     <string name="shots_goal">Remates à Baliza</string>
     <string name="fouls">Faltas</string>
     <string name="passes">Passes</string>
+    <string name="opponent">Oponente</string>
+    <string name="competition">Competição</string>
+    <string name="local">Local</string>
+    <string name="date">Data</string>
+    <string name="time">Hora</string>
+    <string name="finish">Finalizar</string>
+    <string name="addGameTitle">Adicionar Jogo</string>
+    <string name="playerInvite">*Um pedido de adesão ao clube será enviado ao jogador.</string>
+    <string name="add">Adicionar</string>
+    <string name="addPlayerTitle">Adicionar Jogador</string>
 </resources>
