@@ -62,7 +62,7 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/addPlayer_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -86,7 +86,7 @@
                 android:textColor="#A2A2A2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+                app:layout_constraintTop_toBottomOf="@+id/addPlayer_email" />
 
             <Button
                 android:id="@+id/button3"
@@ -96,6 +96,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:backgroundTint="@color/backGroundColor"
+                android:onClick="invitePlayer"
                 android:text="@string/add"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
