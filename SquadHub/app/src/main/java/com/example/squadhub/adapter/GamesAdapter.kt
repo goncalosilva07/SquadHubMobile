@@ -71,9 +71,8 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
         holder.gamestatisticsBtn.setOnClickListener{
             val context = holder.cardGame.context
             val intent = Intent(context, GameStatisticsActivity::class.java)
-            // Passar dados para a nova atividade (opcional)
             intent.putExtra("idGame", g.id)
-            context.startActivity(intent) // Iniciar a nova atividade
+            context.startActivity(intent)
         }
     }
 

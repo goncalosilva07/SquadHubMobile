@@ -87,6 +87,11 @@
 
     <string name="add">Add</string>
 
+    <string name="dialog_removeNotificationTitle">Are you sure you want to remove the notification?</string>
+    <string name="dialog_removeNotificationMessage">You cannot reverse this action!</string>
+
+    <string name="only_web_application">You can only accept the invitation in the web application.</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>

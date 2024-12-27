@@ -35,7 +35,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/deleteNotification"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

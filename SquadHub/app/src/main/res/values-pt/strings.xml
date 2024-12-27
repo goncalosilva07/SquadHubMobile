@@ -62,4 +62,7 @@
     <string name="playerInvite">*Um pedido de adesão ao clube será enviado ao jogador.</string>
     <string name="add">Adicionar</string>
     <string name="addPlayerTitle">Adicionar Jogador</string>
+    <string name="dialog_removeNotificationTitle">Tem a certeza que deseja remover a notificação?</string>
+    <string name="dialog_removeNotificationMessage">Esta ação é irreversível</string>
+    <string name="only_web_application">Só pode aceitar o convite na aplicação web.</string>
 </resources>
