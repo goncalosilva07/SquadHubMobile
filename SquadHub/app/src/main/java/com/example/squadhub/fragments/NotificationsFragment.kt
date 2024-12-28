@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -63,19 +64,26 @@ class NotificationsFragment : Fragment() {
                     //val jsonObject: JSONArray = response
                     println(response)
 
-                    //val jsonArray = JSONArray(response)
-                    for(i in 0 until response.length()) {
-                        val item = response.getJSONObject(i)
-                        val n = Notification(item.getInt("id"),
-                                            item.getInt("idClub"),
-                                            item.getString("title"),
-                                            item.getString("description"),
-                                            item.getBoolean("isInvite"))
+                    if (response.length() == 0){
+                        requireView().findViewById<RecyclerView>(R.id.recyclerViewNotifications).visibility = View.GONE
+                    }else {
+                        requireView().findViewById<CardView>(R.id.notification_noNotification).visibility = View.GONE
+                        //val jsonArray = JSONArray(response)
+                        for (i in 0 until response.length()) {
+                            val item = response.getJSONObject(i)
+                            val n = Notification(
+                                item.getInt("id"),
+                                item.getInt("idClub"),
+                                item.getString("title"),
+                                item.getString("description"),
+                                item.getBoolean("isInvite")
+                            )
 
-                        notifications.add(n)
-                    }
+                            notifications.add(n)
+                        }
                         requireView().findViewById<RecyclerView>(R.id.recyclerViewNotifications).adapter =
-                        NotificationsAdapter(notifications)
+                            NotificationsAdapter(notifications)
+                    }
 
                 } catch (e: JSONException) {
                     e.printStackTrace()

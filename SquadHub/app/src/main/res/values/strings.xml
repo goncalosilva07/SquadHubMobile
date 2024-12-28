@@ -92,6 +92,15 @@
 
     <string name="only_web_application">You can only accept the invitation in the web application.</string>
 
+    <string name="goals">Goals</string>
+    <string name="assists">Assists</string>
+
+    <string name="no_endDate">No known end date</string>
+
+    <string name="no_injury">No injuries</string>
+    <string name="no_performance">No performances</string>
+
+    <string name="no_notification">No notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>

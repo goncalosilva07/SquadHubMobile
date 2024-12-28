@@ -11,12 +11,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.adapter.GameCallAdapter
-import com.example.squadhub.adapter.GamesAdapter
-import com.example.squadhub.model.Game
 import com.example.squadhub.model.GameCall
 import org.json.JSONException
 import org.json.JSONObject
@@ -75,7 +72,7 @@ class GameCallActivity : AppCompatActivity() {
                     val isCreated = response.getBoolean("isCreated")
 
                     if (isCreated){
-                        findViewById<CardView>(R.id.gamecall_nogamecallcard).visibility = View.GONE
+                        findViewById<CardView>(R.id.gamecall_nogamecall).visibility = View.GONE
 
                         val playersList = response.getJSONArray("playersList")
 

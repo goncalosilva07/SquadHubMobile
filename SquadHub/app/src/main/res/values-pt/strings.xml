@@ -65,4 +65,10 @@
     <string name="dialog_removeNotificationTitle">Tem a certeza que deseja remover a notificação?</string>
     <string name="dialog_removeNotificationMessage">Esta ação é irreversível</string>
     <string name="only_web_application">Só pode aceitar o convite na aplicação web.</string>
+    <string name="goals">Golos</string>
+    <string name="assists">Assistências</string>
+    <string name="no_endDate">Sem data prevista</string>
+    <string name="no_injury">Sem lesões</string>
+    <string name="no_performance">Sem performances</string>
+    <string name="no_notification">Sem notificações</string>
 </resources>

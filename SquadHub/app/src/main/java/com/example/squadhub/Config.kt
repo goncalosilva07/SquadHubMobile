@@ -9,6 +9,7 @@ class Config(context : Context) {
     companion object {
 
         val url = "https://esan-tesp-ds-paw.web.ua.pt/tesp-ds-g28/projeto/api/"
+        val url_images = "https://esan-tesp-ds-paw.web.ua.pt/tesp-ds-g28/uploads/"
 
         //var isLogged = false
 
@@ -18,7 +19,6 @@ class Config(context : Context) {
         var role: Int = -1
         lateinit var permissions: List<Permissions>
         var club: Club? = null
-
 
         fun clean(){
             idUser = -1
