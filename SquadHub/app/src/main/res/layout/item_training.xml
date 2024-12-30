@@ -15,10 +15,19 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/itemtraining_statistics"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/statisticsicon" />
+
+        <ImageView
             android:id="@+id/itemtraining_delete"
             android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
+            android:layout_weight="1"
             android:textAlignment="viewEnd"
             app:srcCompat="@drawable/deleteicon" />
 

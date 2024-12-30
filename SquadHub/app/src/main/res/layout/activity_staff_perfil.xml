@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backGroundColor"
-    tools:context=".CoachActivity">
+    tools:context=".StaffPerfilActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -22,7 +22,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/coachTitle"
+            android:text="@string/staffTitle"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
             android:id="@+id/backBtn"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:onClick="goToTeam"
+            android:onClick="goBack"
             android:tint="#070707"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
                     app:cardElevation="1dp">
 
                     <TextView
-                        android:id="@+id/coach_name"
+                        android:id="@+id/staff_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -131,7 +131,7 @@
                     app:cardElevation="1dp">
 
                     <TextView
-                        android:id="@+id/coach_email"
+                        android:id="@+id/staff_email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -171,7 +171,7 @@
                     app:cardElevation="1dp">
 
                     <TextView
-                        android:id="@+id/coach_phone"
+                        android:id="@+id/staff_phone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -211,7 +211,7 @@
                     app:cardElevation="1dp">
 
                     <TextView
-                        android:id="@+id/coach_birthdate"
+                        android:id="@+id/staff_birthdate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -251,7 +251,7 @@
                     app:cardElevation="1dp">
 
                     <TextView
-                        android:id="@+id/coach_careerStartDate"
+                        android:id="@+id/staff_careerStartDate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"

@@ -13,6 +13,16 @@ class Core {
             val date = inputFormat.parse(dateString) // Converte para um objeto Date
             return outputFormat.format(date) // Converte para o novo formato
         }
+
+        fun formatTime(inputTime: String): String {
+            // Define o formato de entrada e saída
+            val inputFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+            // Faz o parsing da string de entrada e formata para o formato desejado
+            val date = inputFormat.parse(inputTime)
+            return outputFormat.format(date!!)
+        }
     }
 
 }

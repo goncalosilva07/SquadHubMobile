@@ -71,4 +71,15 @@
     <string name="no_injury">Sem lesões</string>
     <string name="no_performance">Sem performances</string>
     <string name="no_notification">Sem notificações</string>
+    <string name="dialog_removeTrainingMessage">Esta ação é irreversível</string>
+    <string name="dialog_removeTrainingTitle">Tem a certeza que deseja remover o treino?</string>
+    <string name="no_data">Sem dados</string>
+    <string-array name="training_types">
+        <item>Treino Técnico</item>
+        <item>Treino Tático</item>
+        <item>Treino Físico</item>
+        <item>Treino de Recuperação</item>
+        <item>Treino Coletivo</item>
+        <item>Outro</item>
+    </string-array>
 </resources>

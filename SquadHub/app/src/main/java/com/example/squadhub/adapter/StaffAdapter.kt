@@ -1,5 +1,6 @@
 package com.example.squadhub.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.squadhub.PlayerActivity
 import com.example.squadhub.R
+import com.example.squadhub.StaffPerfilActivity
 import com.example.squadhub.model.User
 
 class StaffAdapter(val staff: ArrayList<User>):
@@ -31,7 +34,9 @@ class StaffAdapter(val staff: ArrayList<User>):
         holder.staffName.text = s.name
         holder.cardStaff.setOnClickListener {
             val context = holder.cardStaff.context
-            Toast.makeText(context, "pos: "+position, Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, StaffPerfilActivity::class.java)
+            intent.putExtra("idUser", s.id)
+            context.startActivity(intent)
         }
     }
 

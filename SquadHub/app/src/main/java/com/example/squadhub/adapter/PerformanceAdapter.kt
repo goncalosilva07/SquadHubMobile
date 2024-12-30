@@ -30,13 +30,13 @@ class PerformanceAdapter(val performances: ArrayList<Performance>):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = performances[position]
 
-        //val context = holder.cardPerformance.context
+        val context = holder.cardPerformance.context
 
         val date = Core.convertFormatDate(p.date)
         holder.performance_date.text = date
 
         holder.performance_trainingType_pontuation.text = p.trainingType + " - " + p.pontuation
-        holder.performance_description.text = p.description
+        holder.performance_description.text = if(p.description == "" || p.description == "null") context.getString(R.string.no_data) else p.description
     }
 
     override fun getItemCount(): Int {

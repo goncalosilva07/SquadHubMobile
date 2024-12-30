@@ -15,6 +15,18 @@
         android:theme="@style/Theme.SquadHub"
         tools:targetApi="31">
         <activity
+            android:name=".AddTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StaffPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddStaffActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainingPerformanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlayerPerformanceActivity"
             android:exported="false" />
         <activity

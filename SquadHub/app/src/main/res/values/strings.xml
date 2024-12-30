@@ -102,6 +102,20 @@
 
     <string name="no_notification">No notifications</string>
 
+    <string name="dialog_removeTrainingTitle">Are you sure you want to remove the training session?</string>
+    <string name="dialog_removeTrainingMessage">You cannot reverse this action!</string>
+
+    <string name="no_data">No data</string>
+
+    <string-array name="training_types">
+        <item>Technical Training</item>
+        <item>Tactical Training</item>
+        <item>Physical Training</item>
+        <item>Recovery Training</item>
+        <item>Collective Training</item>
+        <item>Other</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 

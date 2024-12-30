@@ -46,6 +46,12 @@ class StaffActivity : AppCompatActivity() {
         finish()
     }
 
+    fun addStaff(view: View){
+        val intent = Intent(this, AddStaffActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     fun getStaff(){
 
         val url = Config.url + "route.php"
