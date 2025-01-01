@@ -3,6 +3,7 @@ package com.example.squadhub
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -54,7 +55,10 @@ class PlayerInjuryActivity : AppCompatActivity() {
         val jsonBody = JSONObject()
         try {
             jsonBody.put("route", "getPlayerInjuries")
-            jsonBody.put("idUser", idUser)
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("idPlayer", idUser)
+            Config.club?.let { jsonBody.put("idClub", it.id) }
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -99,7 +103,7 @@ class PlayerInjuryActivity : AppCompatActivity() {
                 val jsonError = JSONObject(errorMessage)
 
                 val message = jsonError.optString("message", "Erro desconhecido")
-
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
         ){
             override fun getBody(): ByteArray {

@@ -94,6 +94,8 @@ class LoginActivity : AppCompatActivity() {
                         getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putBoolean("login", true).putInt("idUser", idUser).apply()
                     }
 
+                    getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putString("jwt", response.getString("jwt")).apply()
+
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -169,6 +171,8 @@ class LoginActivity : AppCompatActivity() {
                             clubJSON.getString("name"), clubJSON.getString("abbreviation"), clubJSON.getInt("victories"),
                             clubJSON.getInt("draws"), clubJSON.getInt("defeats"))
                     }
+
+                    getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putString("jwt", response.getString("jwt")).apply()
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)

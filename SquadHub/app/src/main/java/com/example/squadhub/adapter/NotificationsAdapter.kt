@@ -15,6 +15,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
+import com.example.squadhub.Core
 import com.example.squadhub.R
 import com.example.squadhub.model.Notification
 import org.json.JSONException
@@ -91,6 +92,8 @@ class NotificationsAdapter(val notifications: ArrayList<Notification>): Recycler
             jsonBody.put("id", idNotification)
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "deleteNotification")
+            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("jwt", Core.getToken(context))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

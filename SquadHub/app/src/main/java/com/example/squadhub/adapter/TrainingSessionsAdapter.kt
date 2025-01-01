@@ -100,6 +100,8 @@ class TrainingSessionsAdapter(val trainingSession: ArrayList<TrainingSession>):
             jsonBody.put("idTraining", idTrainingSession)
             Config.club?.let { jsonBody.put("idClub", it.id) }
             jsonBody.put("route", "deleteTrainingSession")
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(context))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

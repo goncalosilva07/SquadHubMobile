@@ -47,7 +47,10 @@ class StaffPerfilActivity : AppCompatActivity() {
         val jsonBody = JSONObject()
         try {
             jsonBody.put("route", "getStaffPerfil")
-            jsonBody.put("idUser", idUser)
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("idStaff", idUser)
+            Config.club?.let { jsonBody.put("idClub", it.id) }
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

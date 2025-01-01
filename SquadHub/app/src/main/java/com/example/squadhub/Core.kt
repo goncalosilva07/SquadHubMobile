@@ -1,5 +1,6 @@
 package com.example.squadhub
 
+import android.content.Context
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -22,6 +23,10 @@ class Core {
             // Faz o parsing da string de entrada e formata para o formato desejado
             val date = inputFormat.parse(inputTime)
             return outputFormat.format(date!!)
+        }
+
+        fun getToken(context: Context): String? {
+            return context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).getString("jwt", "")
         }
     }
 

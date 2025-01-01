@@ -49,7 +49,10 @@ class PlayerActivity : AppCompatActivity() {
         val jsonBody = JSONObject()
         try {
             jsonBody.put("route", "getPlayer")
-            jsonBody.put("idUser", idUser)
+            jsonBody.put("idPlayer", idUser)
+            jsonBody.put("idUser", Config.idUser)
+            Config.club?.let { jsonBody.put("idClub", it.id) }
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

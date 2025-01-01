@@ -17,6 +17,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
+import com.example.squadhub.Core
 import com.example.squadhub.GameCallActivity
 import com.example.squadhub.GameStatisticsActivity
 import com.example.squadhub.LoginActivity
@@ -111,6 +112,9 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
         try {
             jsonBody.put("idGame", idGame)
             jsonBody.put("route", "deleteGame")
+            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(context))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

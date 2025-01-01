@@ -42,6 +42,8 @@ class AddPlayerActivity : AppCompatActivity() {
             Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
             jsonBody.put("route", "invitePlayer")
             jsonBody.put("email", email)
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

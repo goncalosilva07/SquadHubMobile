@@ -13,6 +13,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
+import com.example.squadhub.Core
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
 import com.example.squadhub.model.Club
@@ -46,6 +47,8 @@ class HomeFragment : Fragment() {
         try {
             Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
             jsonBody.put("route", "getHomeInitialData")
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -107,13 +110,14 @@ class HomeFragment : Fragment() {
                 // Erro
                 println("Erro na requisição: " + error.message)
 
+
                 // Verificando se o erro tem um corpo de resposta
                 val errorMessage = String(error.networkResponse.data)
                 val jsonError = JSONObject(errorMessage)
 
                 // Exibir a mensagem de erro enviada pela API
                 val message = jsonError.optString("message", "Erro desconhecido")
-
+                Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
             }
         )
         // Adicionar à fila de requisições

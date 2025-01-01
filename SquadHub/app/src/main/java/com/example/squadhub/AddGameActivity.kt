@@ -99,6 +99,8 @@ class AddGameActivity : AppCompatActivity() {
                 jsonBody.put("date", convertedDate)
                 jsonBody.put("time", timeString)
                 Config.club?.let { jsonBody.put("idClub", it.id) }
+                jsonBody.put("idUser", Config.idUser)
+                jsonBody.put("jwt", Core.getToken(this))
             } catch (e: JSONException) {
                 e.printStackTrace()
             }

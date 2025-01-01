@@ -51,6 +51,9 @@ class GameStatisticsActivity : AppCompatActivity() {
         try {
             jsonBody.put("idGame", idGame)
             jsonBody.put("route", "getGameStatistics")
+            Config.club?.let { jsonBody.put("idClub", it.id) }
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

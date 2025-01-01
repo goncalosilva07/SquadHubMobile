@@ -43,6 +43,8 @@ class CoachActivity : AppCompatActivity() {
         try {
             Config.club?.let { jsonBody.put("idClub", it.id) }
             jsonBody.put("route", "getCoach")
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }

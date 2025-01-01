@@ -15,6 +15,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
+import com.example.squadhub.Core
 import com.example.squadhub.R
 import com.example.squadhub.adapter.NotificationsAdapter
 import com.example.squadhub.adapter.SquadAdapter
@@ -49,6 +50,8 @@ class NotificationsFragment : Fragment() {
         try {
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "getNotifications")
+            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -99,7 +102,7 @@ class NotificationsFragment : Fragment() {
 
                 // Exibir a mensagem de erro enviada pela API
                 val message = jsonError.optString("message", "Erro desconhecido")
-
+                Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
             }
         ){
             override fun getBody(): ByteArray {

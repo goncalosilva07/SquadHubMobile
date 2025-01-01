@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.squadhub.Config
+import com.example.squadhub.Core
 import com.example.squadhub.LoginActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
@@ -56,6 +57,8 @@ class PerfilFragment : Fragment() {
         try {
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "getUserData")
+            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -117,6 +120,8 @@ class PerfilFragment : Fragment() {
             jsonBody.put("phone", phoneEditText)
             jsonBody.put("birthdate", birthdateEditText)
             jsonBody.put("route", "updateUserData")
+            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -152,7 +157,7 @@ class PerfilFragment : Fragment() {
     }
 
     fun logout(view: View){
-        view.context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putBoolean("login", false).putInt("idUser", -1).apply()
+        view.context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putBoolean("login", false).putInt("idUser", -1).putString("jwt", "").apply()
 
         Config.clean()
 

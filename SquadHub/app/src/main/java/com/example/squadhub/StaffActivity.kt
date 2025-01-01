@@ -3,6 +3,7 @@ package com.example.squadhub
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -60,6 +61,8 @@ class StaffActivity : AppCompatActivity() {
         try {
             Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
             jsonBody.put("route", "getStaff")
+            jsonBody.put("idUser", Config.idUser)
+            jsonBody.put("jwt", Core.getToken(this))
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -108,7 +111,7 @@ class StaffActivity : AppCompatActivity() {
 
                 // Exibir a mensagem de erro enviada pela API
                 val message = jsonError.optString("message", "Erro desconhecido")
-
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
         ){
             override fun getBody(): ByteArray {
