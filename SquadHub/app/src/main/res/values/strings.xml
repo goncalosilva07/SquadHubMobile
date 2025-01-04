@@ -40,6 +40,14 @@
     <string name="addGameTitle">Add Game</string>
     <string name="addPlayerTitle">Add Player</string>
 
+    <string name="playerPerfilTitle">Player Perfil</string>
+    <string name="injuriesTitle">Injuries</string>
+    <string name="performanceTitle" translatable="false">Performance</string>
+    <string name="trainingPerformanceTitle">Training Performance</string>
+    <string name="addStaffTitle">Add Staff</string>
+
+    <string name="addTrainingTitle">Add Training</string>
+
     <string name="updateBtn">Save</string>
 
     <string name="coach_name">Name</string>

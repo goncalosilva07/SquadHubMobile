@@ -22,7 +22,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/addGameTitle"
+            android:text="@string/addTrainingTitle"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +62,11 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/addGame_time2"
+                android:id="@+id/addTraining_endTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
                 android:backgroundTint="#000000"
                 android:ems="10"
@@ -74,20 +74,19 @@
                 android:hint="@string/time"
                 android:inputType="datetime|time"
                 android:textColor="#000000"
-                app:layout_constraintEnd_toStartOf="@+id/hour"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toStartOf="@+id/endTime"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addGame_time" />
+                app:layout_constraintTop_toBottomOf="@+id/addTraining_startTime" />
 
             <ImageView
-                android:id="@+id/hour2"
+                android:id="@+id/endTime"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
                 android:tint="#070707"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addGame_time"
+                app:layout_constraintTop_toBottomOf="@+id/addTraining_startTime"
                 app:srcCompat="@drawable/hour" />
 
             <Spinner
@@ -102,7 +101,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/addGame_date"
+                android:id="@+id/addTraining_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -115,6 +114,7 @@
                 android:inputType="date"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toStartOf="@+id/calendar"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
@@ -130,7 +130,7 @@
                 app:srcCompat="@drawable/calendar" />
 
             <EditText
-                android:id="@+id/addGame_time"
+                android:id="@+id/addTraining_startTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -142,36 +142,36 @@
                 android:hint="@string/time"
                 android:inputType="datetime|time"
                 android:textColor="#000000"
-                app:layout_constraintEnd_toStartOf="@+id/hour"
+                app:layout_constraintEnd_toStartOf="@+id/startTime"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addGame_date" />
+                app:layout_constraintTop_toBottomOf="@+id/addTraining_date" />
 
             <ImageView
-                android:id="@+id/hour"
+                android:id="@+id/startTime"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
                 android:tint="#070707"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addGame_date"
+                app:layout_constraintTop_toBottomOf="@+id/addTraining_date"
                 app:srcCompat="@drawable/hour" />
 
             <Button
-                android:id="@+id/addGame_finish"
+                android:id="@+id/addTraining_finish"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="10dp"
                 android:backgroundTint="@color/backGroundColor"
-                android:onClick="addGame"
+                android:onClick="addTraining"
                 android:text="@string/finish"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addGame_time2" />
+                app:layout_constraintTop_toBottomOf="@+id/addTraining_endTime" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

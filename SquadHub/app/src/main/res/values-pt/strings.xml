@@ -25,6 +25,8 @@
     <string name="coachTitle">Treinador</string>
     <string name="gamecallTitle">Convocatória</string>
     <string name="gameStatisticsTitle">Estatísticas</string>
+    <string name="playerPerfilTitle">Perfil Jogador</string>
+    <string name="injuriesTitle">Lesões</string>
     <string name="updateBtn">Guardar</string>
     <string name="coach_name">Nome</string>
     <string name="coach_phone">Telefone</string>
@@ -82,4 +84,7 @@
         <item>Treino Coletivo</item>
         <item>Outro</item>
     </string-array>
+    <string name="trainingPerformanceTitle">Performance de Treino</string>
+    <string name="addStaffTitle">Adicionar Staff</string>
+    <string name="addTrainingTitle">Adicionar Treino</string>
 </resources>
