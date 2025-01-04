@@ -92,7 +92,8 @@ class NotificationsAdapter(val notifications: ArrayList<Notification>): Recycler
             jsonBody.put("id", idNotification)
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "deleteNotification")
-            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            //Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("idClub", if (Config.club?.id == null) "null" else Config.club?.id)
             jsonBody.put("jwt", Core.getToken(context))
         } catch (e: JSONException) {
             e.printStackTrace()

@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -32,6 +33,10 @@ class PlayerActivity : AppCompatActivity() {
         }
 
         idUser = intent.getIntExtra("idUser", -1)
+
+        if (Config.role == 3 && idUser != Config.idUser){
+            findViewById<ImageView>(R.id.player_performanceBtn).visibility = View.GONE
+        }
 
         getPlayer(idUser)
     }
@@ -73,6 +78,7 @@ class PlayerActivity : AppCompatActivity() {
                         // Use o Picasso para carregar a imagem:
                         Picasso.get()
                             .load(Config.url_images + response.getString("photo")) // URL da imagem
+                            .transform(RoundedCornersTransformation(100f, 200, 200))
                             .into(imageView) // ImageView onde a imagem será exibida
                     }
 
@@ -84,7 +90,7 @@ class PlayerActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.player_name).text = response.getString("name") + " " + response.getString("surname")
                     findViewById<TextView>(R.id.player_email).text = response.getString("email")
                     findViewById<TextView>(R.id.player_phone).text = response.getString("phone")
-                    findViewById<TextView>(R.id.player_birthdate).text = response.getString("birthdate")
+                    findViewById<TextView>(R.id.player_birthdate).text = Core.convertFormatDate(response.getString("birthdate"))
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

@@ -9,6 +9,7 @@ class User (
     var birthdate: String,
     var email: String,
     var phone: Int,
+    var photo: String,
     var role: Int
 ){
 

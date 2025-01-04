@@ -3,6 +3,7 @@ package com.example.squadhub
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import com.example.squadhub.adapter.GamesAdapter
 import com.example.squadhub.adapter.SquadAdapter
 import com.example.squadhub.model.Game
 import com.example.squadhub.model.User
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -36,6 +38,10 @@ class GamesActivity : AppCompatActivity() {
 
         findViewById<RecyclerView>(R.id.recyclerViewGames).layoutManager =
             LinearLayoutManager(this)
+
+        if (Config.role == 3){
+            findViewById<FloatingActionButton>(R.id.addGame).visibility = View.GONE
+        }
 
         getGames()
     }

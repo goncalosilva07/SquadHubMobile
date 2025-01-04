@@ -50,7 +50,37 @@ class AddGameActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
+        findViewById<EditText>(R.id.addGame_date).setOnClickListener {
+            // Obter a data atual
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // Criar e exibir o DatePickerDialog
+            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                findViewById<EditText>(R.id.addGame_date).setText(selectedDate)
+                Toast.makeText(this, selectedDate, Toast.LENGTH_SHORT).show()
+            }, year, month, day)
+
+            datePickerDialog.show()
+        }
+
         findViewById<ImageView>(R.id.hour).setOnClickListener {
+            // Abrir o TimePickerDialog
+            val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+                // Formatar a hora como HH:mm
+                val selectedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+                Toast.makeText(this, selectedTime, Toast.LENGTH_SHORT).show()
+                // Definir o texto no EditText
+                findViewById<EditText>(R.id.addGame_time).setText(selectedTime)
+            }, 12, 0, true) // O último parâmetro 'true' indica formato 24h, use 'false' para 12h.
+
+            timePicker.show()
+        }
+
+        findViewById<EditText>(R.id.addGame_time).setOnClickListener {
             // Abrir o TimePickerDialog
             val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
                 // Formatar a hora como HH:mm

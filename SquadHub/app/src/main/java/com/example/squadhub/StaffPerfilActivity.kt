@@ -71,6 +71,7 @@ class StaffPerfilActivity : AppCompatActivity() {
                         // Use o Picasso para carregar a imagem:
                         Picasso.get()
                             .load(Config.url_images + response.getString("photo")) // URL da imagem
+                            .transform(RoundedCornersTransformation(100f, 200, 200))
                             .into(imageView) // ImageView onde a imagem será exibida
                     }
 
@@ -80,7 +81,7 @@ class StaffPerfilActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.staff_email).text = response.getString("email")
                     findViewById<TextView>(R.id.staff_phone).text = response.getString("phone")
                     findViewById<TextView>(R.id.staff_birthdate).text = birthdate
-                    findViewById<TextView>(R.id.staff_careerStartDate).text = if (response.getString("careerStartDate") == "null") "" else response.getString("careerStartDate")
+                    findViewById<TextView>(R.id.staff_careerStartDate).text = if (response.getString("careerStartDate") == "null") "" else Core.convertFormatDate(response.getString("careerStartDate"))
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

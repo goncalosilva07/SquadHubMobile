@@ -1,8 +1,10 @@
 package com.example.squadhub
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,7 @@ import com.example.squadhub.databinding.ActivityRegisterBinding
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 class RegisterActivity : AppCompatActivity() {
@@ -32,10 +35,27 @@ class RegisterActivity : AppCompatActivity() {
 
         if (extras != null){
             role = extras.getInt("role")
-            Toast.makeText(this, role.toString(), Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, role.toString(), Toast.LENGTH_LONG).show()
         }else{
             val intent = Intent(this, UserTypeActivity::class.java)
             startActivity(intent)
+        }
+
+        findViewById<EditText>(R.id.birthdateTxt).setOnClickListener {
+            // Obter a data atual
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // Criar e exibir o DatePickerDialog
+            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                findViewById<EditText>(R.id.birthdateTxt).setText(selectedDate)
+                Toast.makeText(this, selectedDate, Toast.LENGTH_SHORT).show()
+            }, year, month, day)
+
+            datePickerDialog.show()
         }
     }
 

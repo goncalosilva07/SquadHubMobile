@@ -5,6 +5,7 @@ class GameCall(
     val idUser: Int,
     val name: String,
     val surname: String,
+    val photo: String,
     val position: String
 ) {
 }

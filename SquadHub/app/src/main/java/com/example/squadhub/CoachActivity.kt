@@ -3,6 +3,7 @@ package com.example.squadhub
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -57,12 +59,24 @@ class CoachActivity : AppCompatActivity() {
             { response ->
                 // Sucesso
                 try {
+
+                    if (response.getString("photo") != "null"){
+                        // Referencie a ImageView no layout:
+                        val imageView = findViewById<ImageView>(R.id.coach_photo)
+
+                        // Use o Picasso para carregar a imagem:
+                        Picasso.get()
+                            .load(Config.url_images + response.getString("photo")) // URL da imagem
+                            .transform(RoundedCornersTransformation(100f, 200, 200))
+                            .into(imageView) // ImageView onde a imagem será exibida
+                    }
+
                     //val status = response.getString("status")
                     findViewById<TextView>(R.id.coach_name).text = response.getString("name") + " " + response.getString("surname")
                     findViewById<TextView>(R.id.coach_email).text = response.getString("email")
                     findViewById<TextView>(R.id.coach_phone).text = response.getString("phone")
-                    findViewById<TextView>(R.id.coach_birthdate).text = response.getString("birthdate")
-                    findViewById<TextView>(R.id.coach_careerStartDate).text = response.getString("careerStartDate")
+                    findViewById<TextView>(R.id.coach_birthdate).text = Core.convertFormatDate(response.getString("birthdate"))
+                    findViewById<TextView>(R.id.coach_careerStartDate).text = Core.convertFormatDate(response.getString("careerStartDate"))
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

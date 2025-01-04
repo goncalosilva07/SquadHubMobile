@@ -88,6 +88,7 @@ class GameCallActivity : AppCompatActivity() {
                                 item.getInt("idUser"),
                                 item.getString("name"),
                                 item.getString("surname"),
+                                item.getString("photo"),
                                 item.getString("position"))
                                 gamecall.add(g)
                         }
@@ -119,73 +120,5 @@ class GameCallActivity : AppCompatActivity() {
         Volley.newRequestQueue(this).add(jsonObjectRequest)
 
     }
-
-    /*
-    fun getGameCall(idGame: Int){
-
-        val url = Config.url + "route.php"
-        // Criar os dados JSON
-        val jsonBody = JSONObject()
-        try {
-            jsonBody.put("route", "getGameCallData")
-            jsonBody.put("idGame", idGame)
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-
-        // Criar o JsonObjectRequest
-        val jsonObjectRequest = object : JsonArrayRequest(
-            Request.Method.POST,  // Método HTTP
-            url,  // URL
-            null,  // Dados JSON a enviar
-            { response ->
-                // Sucesso
-                try {
-                    //val jsonObject: JSONArray = response
-                    println(response)
-
-                    //val jsonArray = JSONArray(response)
-                    for(i in 0 until response.length()) {
-                        val item = response.getJSONObject(i)
-                        val g = GameCall(item.getInt("id"),
-                            item.getInt("idUser"),
-                            item.getString("name"),
-                            item.getString("surname"),
-                            item.getString("position"))
-                        gamecall.add(g)
-                    }
-
-                    findViewById<RecyclerView>(R.id.recyclerViewGameCall).adapter = GameCallAdapter(gamecall)
-
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
-            },
-            { error ->
-                // Erro
-                println("Erro na requisição: " + error.message)
-
-                // Verificando se o erro tem um corpo de resposta
-                val errorMessage = String(error.networkResponse.data)
-                val jsonError = JSONObject(errorMessage)
-
-                // Exibir a mensagem de erro enviada pela API
-                val message = jsonError.optString("message", "Erro desconhecido")
-
-            }
-        ){
-            override fun getBody(): ByteArray {
-                return jsonBody.toString().toByteArray(Charsets.UTF_8)
-            }
-
-            override fun getBodyContentType(): String {
-                return "application/json; charset=utf-8"
-            }
-        }
-        // Adicionar à fila de requisições
-        Volley.newRequestQueue(this).add(jsonObjectRequest)
-
-    }
-    */
 
 }

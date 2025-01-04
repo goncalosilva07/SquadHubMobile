@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
                         requireView().findViewById<TextView>(R.id.competition).text = game.competition
                         requireView().findViewById<TextView>(R.id.opponent).text = game.opponent
                         requireView().findViewById<TextView>(R.id.local).text = game.local
-                        requireView().findViewById<TextView>(R.id.date_time).text = game.date + " " + game.time
+                        requireView().findViewById<TextView>(R.id.date_time).text = Core.convertFormatDate(game.date) + " " + Core.formatTime(game.time)
                     }else{
                         requireView().findViewById<TextView>(R.id.clubName).visibility = View.GONE
                         requireView().findViewById<TextView>(R.id.competition).visibility = View.GONE

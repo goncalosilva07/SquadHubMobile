@@ -38,7 +38,6 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
         val gamecallBtn: ImageView = itemView.findViewById(R.id.gamecallBtn)
         val gamestatisticsBtn: ImageView = itemView.findViewById(R.id.gamestatisticsBtn)
         val deletegameBtn: ImageView = itemView.findViewById(R.id.deletegameBtn)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,10 +49,13 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val g = games[position]
+
+        val context = holder.cardGame.context
+
         holder.opponentTextView.text = g.opponent
         holder.clubTextView.text = Config.club?.name ?: ""
         holder.game_competition.text = g.competition
-        holder.game_date.text = g.date + " " + g.time
+        holder.game_date.text = Core.convertFormatDate(g.date) + " " + Core.formatTime( g.time)
 
         holder.gamecallBtn.setOnClickListener{
             val context = holder.cardGame.context
@@ -61,6 +63,10 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
             // Passar dados para a nova atividade (opcional)
             intent.putExtra("idGame", g.id)
             context.startActivity(intent) // Iniciar a nova atividade
+        }
+
+        if (Config.role == 3){
+            holder.deletegameBtn.visibility = View.GONE
         }
 
         holder.deletegameBtn.setOnClickListener{

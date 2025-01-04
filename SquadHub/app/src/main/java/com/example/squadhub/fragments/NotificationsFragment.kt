@@ -50,7 +50,8 @@ class NotificationsFragment : Fragment() {
         try {
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "getNotifications")
-            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            //Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("idClub", if (Config.club?.id == null) "null" else Config.club?.id)
             jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()

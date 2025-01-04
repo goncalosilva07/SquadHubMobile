@@ -1,5 +1,6 @@
 package com.example.squadhub.fragments
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
@@ -20,10 +22,13 @@ import com.example.squadhub.Core
 import com.example.squadhub.LoginActivity
 import com.example.squadhub.MainActivity
 import com.example.squadhub.R
+import com.example.squadhub.RoundedCornersTransformation
 import com.example.squadhub.model.Club
 import com.example.squadhub.model.Permissions.Companion.parsePermissionsManually
+import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
+import java.util.Calendar
 
 class PerfilFragment : Fragment() {
 
@@ -47,6 +52,23 @@ class PerfilFragment : Fragment() {
         view.findViewById<Button>(R.id.saveBtn).setOnClickListener {
             updateUserData()
         }
+
+        requireView().findViewById<EditText>(R.id.birthdateEditText).setOnClickListener {
+            // Obter a data atual
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // Criar e exibir o DatePickerDialog
+            val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                requireView().findViewById<EditText>(R.id.birthdateEditText).setText(selectedDate)
+                //Toast.makeText(this, selectedDate, Toast.LENGTH_SHORT).show()
+            }, year, month, day)
+
+            datePickerDialog.show()
+        }
     }
 
     fun getPerfilData(){
@@ -57,7 +79,8 @@ class PerfilFragment : Fragment() {
         try {
             jsonBody.put("idUser", Config.idUser)
             jsonBody.put("route", "getUserData")
-            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("idClub", if (Config.club?.id == null) "null" else Config.club?.id)
+            //Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
             jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()
@@ -73,10 +96,21 @@ class PerfilFragment : Fragment() {
                 try {
                     //val status = response.getString("status")
 
+                    if (response.getString("photo") != "null"){
+                        // Referencie a ImageView no layout:
+                        val imageView = requireView().findViewById<ImageView>(R.id.userPhoto)
+
+                        // Use o Picasso para carregar a imagem:
+                        Picasso.get()
+                            .load(Config.url_images + response.getString("photo")) // URL da imagem
+                            .transform(RoundedCornersTransformation(100f, 200, 200))
+                            .into(imageView) // ImageView onde a imagem será exibida
+                    }
+
                     requireView().findViewById<TextView>(R.id.username).text = response.getString("username")
                     requireView().findViewById<TextView>(R.id.nameEditText).text = response.getString("name")
                     requireView().findViewById<TextView>(R.id.surnameEditText).text = response.getString("surname")
-                    requireView().findViewById<TextView>(R.id.birthdateEditText).text = response.getString("birthdate")
+                    requireView().findViewById<TextView>(R.id.birthdateEditText).text = Core.convertFormatDate(response.getString("birthdate"))
                     requireView().findViewById<TextView>(R.id.emailEditText).text = response.getString("email")
                     requireView().findViewById<TextView>(R.id.phoneEditText).text = response.getString("phone")
 
@@ -118,9 +152,10 @@ class PerfilFragment : Fragment() {
             jsonBody.put("surname", surnameEditText)
             jsonBody.put("email", emailEditText)
             jsonBody.put("phone", phoneEditText)
-            jsonBody.put("birthdate", birthdateEditText)
+            jsonBody.put("birthdate", Core.convertFormatDateToSQLFormat(birthdateEditText.toString()))
             jsonBody.put("route", "updateUserData")
-            Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            //Config.club?.let { jsonBody.put("idClub", it.id.toString()) }
+            jsonBody.put("idClub", if (Config.club?.id == null) "null" else Config.club?.id)
             jsonBody.put("jwt", Core.getToken(requireContext()))
         } catch (e: JSONException) {
             e.printStackTrace()

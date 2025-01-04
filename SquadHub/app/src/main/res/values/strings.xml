@@ -40,7 +40,7 @@
     <string name="addGameTitle">Add Game</string>
     <string name="addPlayerTitle">Add Player</string>
 
-    <string name="playerPerfilTitle">Player Perfil</string>
+    <string name="playerPerfilTitle">Player Profile</string>
     <string name="injuriesTitle">Injuries</string>
     <string name="performanceTitle" translatable="false">Performance</string>
     <string name="trainingPerformanceTitle">Training Performance</string>

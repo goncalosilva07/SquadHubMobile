@@ -75,7 +75,7 @@ class GameStatisticsActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.gamestatistics_club).text = Config.club?.name ?: ""
                     findViewById<TextView>(R.id.gamestatistics_opponent).text = gameData.getString("opponent")
                     findViewById<TextView>(R.id.gamestatistics_local).text = gameData.getString("local")
-                    findViewById<TextView>(R.id.gamestatistics_date).text = gameData.getString("date")
+                    findViewById<TextView>(R.id.gamestatistics_date).text = Core.convertFormatDate(gameData.getString("date"))
 
                     if (gameStatistics != null){
                         findViewById<TextView>(R.id.gamestatistics_nostatistics).visibility = View.GONE

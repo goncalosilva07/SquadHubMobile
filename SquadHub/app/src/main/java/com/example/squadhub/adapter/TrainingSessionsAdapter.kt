@@ -62,6 +62,11 @@ class TrainingSessionsAdapter(val trainingSession: ArrayList<TrainingSession>):
             context.startActivity(intent)
         }
 
+        if (Config.role == 3){
+            holder.itemtraining_delete.visibility = View.GONE
+            holder.itemtraining_statistics.visibility = View.GONE
+        }
+
     }
 
     override fun getItemCount(): Int {

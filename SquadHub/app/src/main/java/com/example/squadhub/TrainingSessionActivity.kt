@@ -17,6 +17,7 @@ import com.example.squadhub.adapter.GamesAdapter
 import com.example.squadhub.adapter.TrainingSessionsAdapter
 import com.example.squadhub.model.Game
 import com.example.squadhub.model.TrainingSession
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -38,6 +39,10 @@ class TrainingSessionActivity : AppCompatActivity() {
 
         findViewById<RecyclerView>(R.id.recyclerViewTraining).layoutManager =
             LinearLayoutManager(this)
+
+        if (Config.role == 3){
+            findViewById<FloatingActionButton>(R.id.floatingActionButton3).visibility = View.GONE
+        }
 
         getTrainingSessions()
     }

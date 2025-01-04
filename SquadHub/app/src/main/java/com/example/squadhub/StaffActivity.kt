@@ -17,6 +17,7 @@ import com.example.squadhub.adapter.SquadAdapter
 import com.example.squadhub.adapter.StaffAdapter
 import com.example.squadhub.model.Game
 import com.example.squadhub.model.User
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -36,6 +37,10 @@ class StaffActivity : AppCompatActivity() {
 
         findViewById<RecyclerView>(R.id.recyclerViewStaff).layoutManager =
             LinearLayoutManager(this)
+
+        if (Config.role == 3 || Config.role == 4){
+            findViewById<FloatingActionButton>(R.id.floatingActionButton2).visibility = View.GONE
+        }
 
         getStaff()
     }
@@ -89,6 +94,7 @@ class StaffActivity : AppCompatActivity() {
                             item.getString("birthdate"),
                             item.getString("email"),
                             item.getInt("phone"),
+                            item.getString("photo"),
                             3)
 
                         staff.add(u)

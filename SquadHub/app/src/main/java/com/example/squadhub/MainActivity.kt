@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         .add(R.id.placeholder, NotificationsFragment() )
                         .commit() }
                 R.id.nav_4 -> {
-                    binding.menuTitle.text = "Perfil"
+                    binding.menuTitle.text = "Profile"
                     supportFragmentManager
                         .beginTransaction()
                         .add(R.id.placeholder, PerfilFragment() )

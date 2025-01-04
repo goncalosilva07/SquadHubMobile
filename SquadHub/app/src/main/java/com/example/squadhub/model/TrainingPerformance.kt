@@ -6,6 +6,7 @@ class TrainingPerformance(
     val idClub: Int,
     val name: String,
     val surname: String,
+    val photo: String,
     val idTrainingPerformance: Int,
     val pontuation: String,
     val description: String

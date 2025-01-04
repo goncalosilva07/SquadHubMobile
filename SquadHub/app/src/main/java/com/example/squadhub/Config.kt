@@ -15,7 +15,7 @@ class Config(context : Context) {
 
         var idUser: Int = -1
         var username: String = ""
-        var idClub: Int? = null
+        //var idClub: Int? = null
         var role: Int = -1
         lateinit var permissions: List<Permissions>
         var club: Club? = null
@@ -23,7 +23,7 @@ class Config(context : Context) {
         fun clean(){
             idUser = -1
             username = ""
-            idClub = null
+            //idClub = null
             role = -1
             permissions = emptyList()
             club = null

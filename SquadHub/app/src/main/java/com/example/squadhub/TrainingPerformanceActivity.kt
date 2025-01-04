@@ -78,6 +78,7 @@ class TrainingPerformanceActivity : AppCompatActivity() {
                             item.getInt("idClub"),
                             item.getString("name"),
                             item.getString("surname"),
+                            item.getString("photo"),
                             item.getInt("idTrainingPerformance"),
                             item.getString("pontuation"),
                             item.getString("description"),

@@ -8,87 +8,84 @@
     android:background="@color/backGroundColor"
     tools:context=".fragments.TeamFragment" >
 
-    <Button
-        android:id="@+id/squadBtn"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/squadBtn"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/gamesBtn"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/gamesBtn"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/squadBtn" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/trainingBtn"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/trainingBtn"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gamesBtn" />
+            <Button
+                android:id="@+id/squadBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/squadBtn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-    <Button
-        android:id="@+id/staffBtn"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/staffBtn"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trainingBtn" />
+            <Button
+                android:id="@+id/gamesBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/gamesBtn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-    <Button
-        android:id="@+id/coachBtn"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/coachBtn"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staffBtn" />
+            <Button
+                android:id="@+id/trainingBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/trainingBtn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/staffBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/staffBtn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/coachBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/coachBtn"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

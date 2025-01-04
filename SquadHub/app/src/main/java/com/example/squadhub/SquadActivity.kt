@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley
 import com.example.squadhub.adapter.SquadAdapter
 import com.example.squadhub.model.Game
 import com.example.squadhub.model.User
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -39,6 +40,10 @@ class SquadActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        if (Config.role == 3 || Config.role == 4){
+            findViewById<FloatingActionButton>(R.id.floatingActionButton).visibility = View.GONE
         }
 
         getSquad()
@@ -93,6 +98,7 @@ class SquadActivity : AppCompatActivity() {
                             item.getString("birthdate"),
                             item.getString("email"),
                             item.getInt("phone"),
+                            item.getString("photo"),
                             3)
 
                         squad.add(u)

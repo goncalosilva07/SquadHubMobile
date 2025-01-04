@@ -15,6 +15,14 @@ class Core {
             return outputFormat.format(date) // Converte para o novo formato
         }
 
+        fun convertFormatDateToSQLFormat(dateString: String): String {
+            val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+            val date = inputFormat.parse(dateString) // Converte para um objeto Date
+            return outputFormat.format(date) // Converte para o novo formato
+        }
+
         fun formatTime(inputTime: String): String {
             // Define o formato de entrada e saída
             val inputFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())

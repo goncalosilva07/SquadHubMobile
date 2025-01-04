@@ -52,12 +52,29 @@ class AddTrainingActivity : AppCompatActivity() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedItem = parent?.getItemAtPosition(position).toString()
-                Toast.makeText(this@AddTrainingActivity, selectedItem, Toast.LENGTH_LONG).show()
+                //Toast.makeText(this@AddTrainingActivity, selectedItem, Toast.LENGTH_LONG).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Ação quando nada é selecionado (opcional)
             }
+        }
+
+        findViewById<EditText>(R.id.addTraining_date).setOnClickListener {
+            // Obter a data atual
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // Criar e exibir o DatePickerDialog
+            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                findViewById<EditText>(R.id.addTraining_date).setText(selectedDate)
+                Toast.makeText(this, selectedDate, Toast.LENGTH_SHORT).show()
+            }, year, month, day)
+
+            datePickerDialog.show()
         }
 
         findViewById<ImageView>(R.id.calendar).setOnClickListener {
@@ -77,6 +94,19 @@ class AddTrainingActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
+        findViewById<EditText>(R.id.addTraining_startTime).setOnClickListener {
+            // Abrir o TimePickerDialog
+            val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+                // Formatar a hora como HH:mm
+                val selectedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+                Toast.makeText(this, selectedTime, Toast.LENGTH_SHORT).show()
+                // Definir o texto no EditText
+                findViewById<EditText>(R.id.addTraining_startTime).setText(selectedTime)
+            }, 12, 0, true) // O último parâmetro 'true' indica formato 24h, use 'false' para 12h.
+
+            timePicker.show()
+        }
+
         findViewById<ImageView>(R.id.startTime).setOnClickListener {
             // Abrir o TimePickerDialog
             val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
@@ -91,6 +121,19 @@ class AddTrainingActivity : AppCompatActivity() {
         }
 
         findViewById<ImageView>(R.id.endTime).setOnClickListener {
+            // Abrir o TimePickerDialog
+            val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+                // Formatar a hora como HH:mm
+                val selectedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+                Toast.makeText(this, selectedTime, Toast.LENGTH_SHORT).show()
+                // Definir o texto no EditText
+                findViewById<EditText>(R.id.addTraining_endTime).setText(selectedTime)
+            }, 12, 0, true) // O último parâmetro 'true' indica formato 24h, use 'false' para 12h.
+
+            timePicker.show()
+        }
+
+        findViewById<EditText>(R.id.addTraining_endTime).setOnClickListener {
             // Abrir o TimePickerDialog
             val timePicker = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
                 // Formatar a hora como HH:mm
