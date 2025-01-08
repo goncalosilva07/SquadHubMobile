@@ -87,4 +87,5 @@
     <string name="trainingPerformanceTitle">Performance de Treino</string>
     <string name="addStaffTitle">Adicionar Staff</string>
     <string name="addTrainingTitle">Adicionar Treino</string>
+    <string name="staffInvite">*Um pedido de adesão ao clube será enviado ao staff.</string>
 </resources>

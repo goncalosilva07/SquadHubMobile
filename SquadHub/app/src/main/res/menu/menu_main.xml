@@ -5,23 +5,30 @@
         android:id="@+id/nav_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/homeicon" />
+        android:icon="@drawable/homeicon"
+        android:title="" />
     <item
         android:id="@+id/nav_5"
-        android:icon="@drawable/homeicon" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/homeicon"
+        android:title="" />
     <item
         android:id="@+id/nav_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ballicon" />
+        android:icon="@drawable/ballicon"
+        android:title="" />
     <item
         android:id="@+id/nav_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/notificationicon" />
+        android:icon="@drawable/notificationicon"
+        android:title="" />
     <item
         android:id="@+id/nav_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/personicon" />
+        android:icon="@drawable/personicon"
+        android:title="" />
 </menu>

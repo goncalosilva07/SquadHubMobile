@@ -32,7 +32,6 @@ class AddGameActivity : AppCompatActivity() {
             insets
         }
 
-
         findViewById<ImageView>(R.id.calendar).setOnClickListener {
             // Obter a data atual
             val calendar = Calendar.getInstance()
@@ -170,9 +169,5 @@ class AddGameActivity : AppCompatActivity() {
             // Adicionar à fila de requisições
             Volley.newRequestQueue(this).add(jsonObjectRequest)
         }
-
-
-
-
     }
 }
