@@ -113,7 +113,12 @@ class GameCallActivity : AppCompatActivity() {
 
                 // Exibir a mensagem de erro enviada pela API
                 val message = jsonError.optString("message", "Erro desconhecido")
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                if (message == "Expired token" || message == "Acesso negado"){
+                    Toast.makeText(this, "Token inválido ou expirado. Por favor, inicie sessão novamente para continuar.", Toast.LENGTH_LONG).show()
+                    Core.tokenError(this)
+                }else{
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
             }
         )
         // Adicionar à fila de requisições

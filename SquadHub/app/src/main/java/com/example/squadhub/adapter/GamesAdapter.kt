@@ -151,7 +151,12 @@ class GamesAdapter(val games: ArrayList<Game>): RecyclerView.Adapter<GamesAdapte
 
                 // Exibir a mensagem de erro enviada pela API
                 val message = jsonError.optString("message", "Erro desconhecido")
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                if (message == "Expired token" || message == "Acesso negado"){
+                    Toast.makeText(context, "Token inválido ou expirado. Por favor, inicie sessão novamente para continuar.", Toast.LENGTH_LONG).show()
+                    Core.tokenError(context)
+                }else{
+                    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                }
             }
         )
         // Adicionar à fila de requisições

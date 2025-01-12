@@ -1,6 +1,7 @@
 package com.example.squadhub
 
 import android.content.Context
+import android.content.Intent
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -35,6 +36,16 @@ class Core {
 
         fun getToken(context: Context): String? {
             return context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).getString("jwt", "")
+        }
+
+        fun tokenError(context: Context) {
+            context.getSharedPreferences("squadhubSP", Context.MODE_PRIVATE).edit().putBoolean("login", false).putInt("idUser", -1).putString("jwt", "").apply()
+
+            Config.clean()
+
+            val intent = Intent(context, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            context.startActivity(intent)
         }
     }
 
